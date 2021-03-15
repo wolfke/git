@@ -494,8 +494,7 @@ int merge_strategies_octopus(struct repository *r,
 		return 2;
 	}
 
-	reference_commit = xcalloc(commit_list_count(remotes) + 1,
-				   sizeof(struct commit *));
+	CALLOC_ARRAY(reference_commit, commit_list_count(remotes) + 1);
 	reference_commit[0] = head_commit;
 	reference_tree = head_tree;
 
